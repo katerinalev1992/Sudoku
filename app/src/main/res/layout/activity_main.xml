@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="30dp"
+    android:orientation="horizontal"
+    android:background="#fef4a8">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="60sp"
+            android:text="@string/mainTitle"
+            android:gravity="center"
+            android:layout_marginBottom="25dip"
+            android:id="@+id/mainTitle"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/continueGame"
+            android:id="@+id/btnContinue"
+            android:textSize="50dp" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_game"
+            android:id="@+id/btnNewGame"
+            android:textSize="50dp" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about"
+            android:id="@+id/btnAbout"
+            android:textSize="50dp" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exitGame"
+            android:id="@+id/btnExit"
+            android:textSize="50dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

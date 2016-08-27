@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#b9ffe58f">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gameTitle"
+        android:text="@string/mainTitle"
+        android:gravity="center"
+        android:textSize="50dp" />
+
+    <GridView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/field"
+        android:background="@drawable/bg2" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#c5718079"
+        android:layout_marginTop="50dp">
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/n1" />
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/n2" />
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/n3" />
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/n4" />
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/n5" />
+        <Button
+            android:id="@+id/btn6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/n6" />
+        <Button
+            android:id="@+id/btn7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/n7" />
+        <Button
+            android:id="@+id/btn8"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/n8" />
+        <Button
+            android:id="@+id/btn9"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/n9" />
+    </LinearLayout>
+
+</LinearLayout>
