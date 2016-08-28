@@ -26,7 +26,7 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:background="#c5718079"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="20dp">
         <Button
             android:id="@+id/btn1"
             android:layout_width="40dp"
