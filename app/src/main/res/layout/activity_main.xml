@@ -44,8 +44,6 @@
             android:id="@+id/btnExit"
             android:textSize="50dp" />
 
-    </LinearLayout>
-
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -53,4 +51,8 @@
             android:id="@+id/devAuth"
             android:gravity="bottom"
             android:textSize="30dp"/>
+
+    </LinearLayout>
+
+
 </LinearLayout>
