@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="fill_parent"
+    android:background="#b9ffe58f"    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about_game"
+        android:textSize="50dp"
+        android:id="@+id/aboutTitle"
+        android:gravity="center"/>
 
-
+    <ScrollView
+        android:id="@+id/SCROLLER_ID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/some_information_about_game"
         android:id="@+id/aboutTV"
-        android:textSize="30dp"
-        android:layout_margin="20dp" />
+        android:textSize="40dp"
+        android:layout_margin="20dp"
+        android:paddingBottom="30dp" />
+    </ScrollView>
 </LinearLayout>

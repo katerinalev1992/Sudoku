@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="30dp"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="#fef4a8">
 
     <LinearLayout
@@ -46,4 +46,11 @@
 
     </LinearLayout>
 
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/kateryna_levytska"
+            android:id="@+id/devAuth"
+            android:gravity="bottom"
+            android:textSize="30dp"/>
 </LinearLayout>

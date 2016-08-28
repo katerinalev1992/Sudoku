@@ -5,5 +5,15 @@
     <string name="about">About</string>
     <string name="exitGame">Exit</string>
     <string name="continueGame">Continue</string>
-    <string name="some_information_about_game">Some information about game</string>
+    <string name="some_information_about_game">The objective is to fill a 9×9 grid with digits so that
+        each column, each row, and each of the nine 3×3 subgrids that compose the grid (also called
+        "boxes", "blocks", "regions", or "subsquares") contains all of the digits from 1 to 9. The
+        puzzle setter provides a partially completed grid, which for a well-posed puzzle has a unique
+        solution.
+
+        Completed games are always a type of Latin square with an additional constraint on the contents
+        of individual regions. For example, the same single integer may not appear twice in the same row,
+        column, or any of the nine 3×3 subregions of the 9x9 playing board.</string>
+    <string name="about_game">About game</string>
+    <string name="kateryna_levytska">Kateryna Levytska</string>
 </resources>

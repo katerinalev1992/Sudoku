@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -16,37 +15,27 @@ import java.util.Random;
  */
 public class Game extends BaseAdapter{
 
-    GridView field;
-
-
     private Context mContext;
     private final Integer mRows = 9, mCols = 9;
     private int numberArray[][] = new int[9][9];
     
-    private Resources mRes; // Ресурсы приложения
-    private ArrayList<String> arrPict; // массив картинок
+    private Resources mRes;
+    private ArrayList<String> arrPict;
 
-    private ArrayList<String> arrStatus;
     int UnblockPositions[] = new int[mRows*mCols];
     int helperArray[][];
 
     public Game(Context context){
-
         mContext = context;
-
-        arrPict = new ArrayList<String>(mCols*mRows);
-        arrStatus = new ArrayList<String>();
-        
+        arrPict = new ArrayList<>(mCols*mRows);
         mRes = mContext.getResources();
 
         createField();
-
     }
 
     private void createField() {
         initilizeArray(numberArray);
 
-        //shiftNumbers(3, 1, numberArray);
         shiftNumbers(3, 1);
         shiftNumbers(6, 2);
 
@@ -72,18 +61,15 @@ public class Game extends BaseAdapter{
         Random r = new Random();
         int i = 0;
         while (i<70) {
-            int i1 = r.nextInt(80);
-            arrPict.set(i1, "nempty");
-            UnblockPositions[i] = i1;
-            helperArray[getRow(i1)][getCell(i1)] = -1;
-            i++;
-        }
-
-
+                int i1 = r.nextInt(80);
+                arrPict.set(i1, "nempty");
+                UnblockPositions[i] = i1;
+                helperArray[getRow(i1)][getCell(i1)] = -1;
+                i++;
+            }
 
 
     }
-
 
     private void initilizeArray(int array[][]){
         for(int i = 0; i < mRows; i++){
@@ -97,11 +83,8 @@ public class Game extends BaseAdapter{
         int index;
         for(int j = 0; j< mCols; j++){
                 index = (j+count)%9+1;
-                //if(index>=9) index = j+count-9;
                 numberArray[row][j] = index;
             }
-
-
     }
 
     private void transposingArray(int array[][]){
@@ -124,7 +107,6 @@ public class Game extends BaseAdapter{
             numberArray[i] = numberArray[i+2];
             numberArray[i+1] = tempArray;
             numberArray[i+2] = tempArray2;
-            System.out.println("I:" + i);
             i=i+3;
         }while(i < mRows);
     }
@@ -147,6 +129,7 @@ public class Game extends BaseAdapter{
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
+
         ImageView imageView;
 
         if(view == null)
@@ -166,13 +149,12 @@ public class Game extends BaseAdapter{
                 arrPict.set(position, selectedButton);
                 helperArray[getRow(position)][getCell(position)] = Integer.parseInt(selectedButton.split("n")[1]);
                 notifyDataSetChanged();
-                checkRepeatedValues(selectedButton);
             }
         }
 
     }
 
-    public void checkRepeatedValues(String selectedButton){
+    public boolean checkRepeatedValues(String selectedButton){
         int repeatedX = 0;
         int repeatedY = 0;
         int number = Integer.parseInt(selectedButton.split("n")[1]);
@@ -180,37 +162,38 @@ public class Game extends BaseAdapter{
         for(int i = 0; i< mRows; i++){
             for( int j = 0; j< mCols; j++){
                 if(helperArray[i][j] == number){
+
                     repeatedX++;
                 }
                 if(helperArray[j][i] == number){
-                    repeatedX++;
+                    repeatedY++;
                 }
             }
-            if (repeatedY>2 || repeatedX>2){
-                System.out.println("Number: " + number);
-                System.out.println("You have repeated values");
+
+            if (repeatedY>=2 || repeatedX>=2){
+                return true;
             }
             repeatedX = 0;
             repeatedY = 0;
 
         }
-
-
-
+        return false;
     }
 
      public int getRow(int position){
 
-         int row = 0;
+         int row = 1;
          if(position<=8){
              return 0;
          }else{
-             while(position>=0){
+             while(position>=0 && position<9){
+                 row++;
+             }
+             while(position>=9){
                  position = position-9;
                  row++;
              }
-            if(row>8) row = 8;
-             return row;
+             return row-1;
          }
 
      }
@@ -223,13 +206,28 @@ public class Game extends BaseAdapter{
         }
     }
 
-    public void checkWinner(){
+    public boolean checkWinner(){
         int i1=0, i2=0, i3=0, i4=0, i5=0, i6=0, i7=0,i8=0, i9=0;
         for(int i = 0; i< mCols; i++){
             for (int j=0 ; j< mRows; j++){
-
+                if (helperArray[i][j] == 1) i1++;
+                if (helperArray[i][j] == 2) i2++;
+                if (helperArray[i][j] == 3) i3++;
+                if (helperArray[i][j] == 4) i4++;
+                if (helperArray[i][j] == 5) i5++;
+                if (helperArray[i][j] == 6) i6++;
+                if (helperArray[i][j] == 7) i7++;
+                if (helperArray[i][j] == 8) i8++;
+                if (helperArray[i][j] == 9) i9++;
             }
         }
+
+        if (i1 == 9 && i2 == 9 && i3 == 9 && i4 == 9 && i5 == 9 && i6 == 9 && i7 == 9 && i8 == 9 && i9 == 9) {
+            return true;
+        }
+
+        return false;
+
     }
 
 }

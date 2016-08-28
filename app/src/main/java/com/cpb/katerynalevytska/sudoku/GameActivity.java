@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by katerynalevytska on 8/13/16.
@@ -40,7 +41,12 @@ public class GameActivity extends Activity implements View.OnClickListener{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 mGame.setNumber(position, selectedButton);
-                showCurrentPosition(position);
+                if(mGame.checkRepeatedValues(selectedButton)){
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "You have repeated values: " + selectedButton.split("n")[1], Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                if(mGame.checkWinner()) showWinnerDialod();
         }
         });
 
@@ -102,19 +108,18 @@ public class GameActivity extends Activity implements View.OnClickListener{
         }
     }
 
-    private void showCurrentPosition(int position) {
+    private void showWinnerDialod() {
         final AlertDialog.Builder alertBox = new AlertDialog.Builder(this);
 
         alertBox.setTitle("Congratulations");
-        int cell = mGame.getCell(position);
-        int row = mGame.getRow(position);
-        String TextToast = "Row:  " + row + "\nCol: " + cell;
+
+        String TextToast = "YOU ARE WIN";
         alertBox.setMessage(TextToast);
 
         alertBox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //finish();
+                finish();
             }
         });
 

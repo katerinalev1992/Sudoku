@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Button newGameBTN;
     Button continueBTN;
     TextView title;
+    TextView devAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         exitBTN = (Button) findViewById(R.id.btnExit);
         newGameBTN = (Button) findViewById(R.id.btnNewGame);
         continueBTN = (Button) findViewById(R.id.btnContinue);
+        devAuth = (TextView) findViewById(R.id.devAuth);
 
 
         aboutBTN.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         exitBTN.setTypeface(type);
         newGameBTN.setTypeface(type);
         continueBTN.setTypeface(type);
+        devAuth.setTypeface(type);
 
     }
 
